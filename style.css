@@ -38,7 +38,7 @@ body {
     background: #e0e0e0;
     border: 1px solid #ccc;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 14px; /* Base desktop/tablet size */
     padding: 0;
 }
 
@@ -67,17 +67,21 @@ body {
 /* Responsive column counts */
 @media (max-width: 640px) {
     .inventory-grid { grid-template-columns: repeat(9, 1fr); }
+    .cube-button { font-size: 13px; }
 }
 
 @media (max-width: 480px) {
     .inventory-grid { grid-template-columns: repeat(6, 1fr); }
+    .cube-button { font-size: 12px; }
 }
 
 @media (max-width: 360px) {
     .inventory-grid { grid-template-columns: repeat(4, 1fr); }
+    .cube-button { font-size: 11px; }
 }
 
 @media (max-width: 280px) {
     .inventory-grid { grid-template-columns: repeat(3, 1fr); }
+    .cube-button { font-size: 10px; }
 }
 
