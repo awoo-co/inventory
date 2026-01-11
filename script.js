@@ -2,8 +2,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.inventory-grid');
     const buttons = Array.from(document.querySelectorAll('.cube-button'));
-    const softkeyLeft = document.querySelector('.softkey-left');
-    const softkeyRight = document.querySelector('.softkey-right');
 
     // Click handler shows alert
     buttons.forEach((button) => {
@@ -77,38 +75,5 @@ document.addEventListener('DOMContentLoaded', () => {
         // No-op: columns recalc on next key press via getColumnCount
     });
 
-    // Softkey actions (KaiOS)
-    function handleReload() {
-        try { location.reload(); } catch (_) {}
-    }
-    function handleExit() {
-        // Try to close; fallback to history/back or blank
-        try { window.close(); } catch (_) {}
-        try { history.back(); } catch (_) {}
-        try { location.replace('about:blank'); } catch (_) {}
-    }
-
-    if (softkeyLeft) {
-        softkeyLeft.addEventListener('click', handleReload);
-        softkeyLeft.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === 'OK') handleReload();
-        });
-    }
-    if (softkeyRight) {
-        softkeyRight.addEventListener('click', handleExit);
-        softkeyRight.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === 'OK') handleExit();
-        });
-    }
-
-    // Global key handling for KaiOS softkeys
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'SoftLeft') {
-            e.preventDefault();
-            handleReload();
-        } else if (e.key === 'SoftRight') {
-            e.preventDefault();
-            handleExit();
-        }
-    });
+    // (removed) SoftLeft/SoftRight handlers; keep d-pad only
 });
