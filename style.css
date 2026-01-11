@@ -11,6 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    padding-bottom: 28px; /* space for softkeys bar */
 }
 
 .inventory-container {
@@ -62,6 +63,33 @@ body {
 
 .cube-button:active {
     background: #c0c0c0;
+}
+
+/* Visible focus for D-pad navigation */
+.cube-button:focus {
+    outline: 2px solid #007aff;
+    outline-offset: 2px;
+}
+
+/* KaiOS softkeys bar */
+.softkeys {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 28px;
+    background: #ffffff;
+    border-top: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8px;
+    color: #333;
+    font-size: 12px;
+}
+
+.softkey-left, .softkey-right {
+    user-select: none;
 }
 
 /* Responsive column counts */
