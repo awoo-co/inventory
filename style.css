@@ -5,7 +5,7 @@
 }
 
 body {
-    background: #f5f5f5;
+    background: #131313;
     font-family: sans-serif;
     display: flex;
     justify-content: center;
@@ -35,10 +35,11 @@ body {
 .cube-button {
     position: relative;
     width: 100%;
-    background: #e0e0e0;
+    background: #2a2a2a;
     border: 1px solid #ccc;
     cursor: pointer;
     font-size: 14px; /* Base desktop/tablet size */
+    color: #fff;
     padding: 0;
 }
 
