@@ -6,7 +6,7 @@
 
 body {
     background: #f5f5f5;
-    font-family: Arial, sans-serif;
+    font-family: sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,9 +14,8 @@ body {
 }
 
 .inventory-container {
-    padding: 10px;
+    padding: 5px;
     width: 100%;
-    max-width: 600px;
 }
 
 .inventory-title {
@@ -29,16 +28,32 @@ body {
 .inventory-grid {
     display: grid;
     grid-template-columns: repeat(9, 1fr);
-    gap: 8px;
+    gap: 6px;
+    max-width: 100%;
 }
 
 .cube-button {
+    position: relative;
     width: 100%;
-    aspect-ratio: 1;
     background: #e0e0e0;
-    border: 2px solid #ccc;
+    border: 1px solid #ccc;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 12px;
+    padding: 0;
+}
+
+.cube-button::before {
+    content: '';
+    display: block;
+    padding-top: 100%; /* Square fallback for older browsers */
+}
+
+.cube-button > span {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cube-button:hover {
@@ -49,78 +64,20 @@ body {
     background: #c0c0c0;
 }
 
-/* Tablet and smaller screens */
+/* Responsive column counts */
 @media (max-width: 640px) {
-    .inventory-grid {
-        gap: 6px;
-    }
-    
-    .cube-button {
-        font-size: 12px;
-        border-width: 1px;
-    }
+    .inventory-grid { grid-template-columns: repeat(9, 1fr); }
 }
 
-/* Large KaiOS phones (320px-400px) */
-@media (max-width: 400px) {
-    .inventory-container {
-        padding: 8px;
-    }
-    
-    .inventory-title {
-        font-size: 18px;
-        margin-bottom: 10px;
-    }
-    
-    .inventory-grid {
-        gap: 4px;
-    }
-    
-    .cube-button {
-        font-size: 10px;
-    }
+@media (max-width: 480px) {
+    .inventory-grid { grid-template-columns: repeat(6, 1fr); }
 }
 
-/* Small KaiOS phones (240px-320px) */
-@media (max-width: 320px) {
-    .inventory-container {
-        padding: 5px;
-    }
-    
-    .inventory-title {
-        font-size: 16px;
-        margin-bottom: 8px;
-    }
-    
-    .inventory-grid {
-        grid-template-columns: repeat(6, 1fr);
-        gap: 3px;
-    }
-    
-    .cube-button {
-        font-size: 8px;
-        border-width: 1px;
-    }
+@media (max-width: 360px) {
+    .inventory-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
-/* Very small KaiOS phones (240px and below) */
-@media (max-width: 240px) {
-    .inventory-container {
-        padding: 3px;
-    }
-    
-    .inventory-title {
-        font-size: 14px;
-        margin-bottom: 5px;
-    }
-    
-    .inventory-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 2px;
-    }
-    
-    .cube-button {
-        font-size: 7px;
-    }
+@media (max-width: 280px) {
+    .inventory-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
